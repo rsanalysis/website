@@ -8,16 +8,16 @@ const time_strike = require('./time_strike')
 const construction = require('../magic_const')
 const { channel } = require('diagnostics_channel')
 
-function tsunami(type, settings, numberOfHits) {
+function armadyl_battlestaff(type, settings, numberOfHits) {
     const AD_INS = new AbilityDmg();
     const NPC_INS = new OnNPC();
     const HIT_INS = new OnHit();
     const CRIT_INS = new Crit();
     const AVG_INS = new Avg();
     const Helper = new NecroHelper(); 
-    let abil_val = 'tsunami'
-    const fixedPercent = construction['abilities'][abil_val]['fixed percent'];
-    const variablePercent = construction['abilities'][abil_val]['variable percent'];
+    let abil_val = 'armadyl battlestaff'
+    let fixedPercent = construction['abilities'][abil_val]['fixed percent'];
+    let variablePercent = construction['abilities'][abil_val]['variable percent'];
     settings['category'] = construction['abilities'][abil_val]['category'];
 
     let concStacks = 0;
@@ -26,9 +26,13 @@ function tsunami(type, settings, numberOfHits) {
     if (type === 'Dw') {
         concStacks = settings['conc stacks'];
     }
+    if (settings['ring'] === 'channelers') {
+        channellerStacks += 1;
+    }
 
     const hits = []
    
+    numberOfHits = 4;
     for(var hitsplat = 0; hitsplat < numberOfHits; hitsplat++) {
         const damageObject = Helper.damageObjectCreator(settings);
 
@@ -67,6 +71,10 @@ function tsunami(type, settings, numberOfHits) {
         
         //calc min, avg, or max depending on request
         hits.push(AVG_INS.returnDecider(damageObject,settings,abil_val, concStacks, channellerStacks));
+        
+        if (settings['ring'] === 'channelers') {
+            channellerStacks += 1;
+        }
     }
     
     //calc total damage
@@ -74,4 +82,4 @@ function tsunami(type, settings, numberOfHits) {
     return Helper.flooredList(hits);
 }
 
-module.exports = tsunami;
+module.exports = armadyl_battlestaff;

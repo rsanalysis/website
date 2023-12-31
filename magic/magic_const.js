@@ -132,7 +132,10 @@ const magic_construction = {
         },
         'virtus mask':{
             'bonus': 20.3
-        }
+        },
+        'sliske helm':{
+            'bonus': 0
+        },
     },
 
     'bodies': {
@@ -153,7 +156,10 @@ const magic_construction = {
         },
         'virtus robe top':{
             'bonus': 30.5
-        }
+        },
+        'sliske body':{
+            'bonus': 0
+        },
     },
 
     'legs': {
@@ -174,7 +180,10 @@ const magic_construction = {
         },
         'virtus robe legs':{
             'bonus': 25.4
-        }
+        },
+        'sliske legs':{
+            'bonus': 0
+        },
     },
 
     'boots': {
@@ -634,6 +643,13 @@ const magic_construction = {
             "on hit effects": true,
             "crit effects": true,
             'category': 'basic'
+        },
+        "armadyl battlestaff":{
+            "fixed percent": 0.5,
+            "variable percent": 0.1,
+            "on hit effects": true,
+            "crit effects": true,
+            'category': 'special attack'
         },
     }
 }
