@@ -1,0 +1,17 @@
+{
+  "name": "ability-damage-analysis",
+  "version": "0.0.0",
+  "source": "index.html",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  },
+  "dependencies": {
+    "yarn": "^1.22.21"
+  }
+}
